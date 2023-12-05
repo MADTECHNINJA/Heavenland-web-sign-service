@@ -1,0 +1,34 @@
+
+app:
+  name:  web-sign-service-develop 
+  namespace: web-sign-service-develop
+  port: 3000
+  replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: "web-sign-service-develop"
+
+service:
+  name: web-sign-service-develop-cluster
+  type: NodePort
+  port: 3000
+
+ingress:
+  name:  web-sign-service-develop-ingress
+  enabled: false
+  hosts:
+  tunnel_name:
+  target:
